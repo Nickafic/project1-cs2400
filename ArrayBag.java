@@ -40,6 +40,32 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         newBag.toArray();
         return newBag;
     }
+    
+    /**
+    public BagInterface<T> union(T[] item)
+    {
+        List<T> unionList = Arrays.asList(this.bag);
+        
+        for(T elem: item)
+        {
+            boolean present = false; 
+            for(T elem1: this.bag)
+            {
+                if(elem1.equals(elem))
+                {
+                    present = true;
+                }
+            }
+            if(!present)
+            {
+                unionList.add(elem);
+            }
+        }
+        this.bag = unionList.toArray(new Bag[unionList.size()]);
+        return this;
+    }
+    */
+    
     public boolean remove(T entry){
         for(int i =0; i<numberOfEntries; i++){
             if(bag[i] == entry){
