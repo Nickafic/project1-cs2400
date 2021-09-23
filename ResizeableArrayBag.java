@@ -33,7 +33,7 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         checkIntegrity();
         int frequency = 0;
         for(int i =0; i<numberOfEntries; i++){
-            if(entry.equals(bag[i]))
+            if(entry == bag[i])
                 frequency++;
         }
         return frequency;
@@ -81,7 +81,7 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
     public boolean remove(T entry){
         checkIntegrity();
         for(int i =0; i<numberOfEntries; i++){
-            if(bag[i] == entry){
+            if(entry == bag[i]){
                 bag[i] = bag[numberOfEntries-1];
                 bag[numberOfEntries-1] = null;
                 numberOfEntries--;
@@ -107,11 +107,12 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         return contents;
     }
 
-    
     public ResizeableArrayBag<T> intersection(ResizeableArrayBag<T> bagTwo)
     {
-        checkIntegrity();
         ResizeableArrayBag<T> intersect = new ResizeableArrayBag<>(this.numberOfEntries + bagTwo.numberOfEntries);
+
+        boolean statForInt[] = new boolean[bagTwo.numberOfEntries];
+
         for (int i = 0; i < this.numberOfEntries; i++)
         {
             for (int j = 0; j < bagTwo.numberOfEntries; j++)
@@ -119,12 +120,15 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
                 if (this.bag[i] == bagTwo.bag[j])
                     intersect.add(this.bag[i]);
 
+                if ((this.bag[i] == bagTwo.bag[j]) && (statForInt[j]==false))
+                {
+                     intersect.add(this.bag[i]);
+                     statForInt[j] = true;
+                }
             }
         }
-        intersect.toArray();
         return intersect;
-            
-    }   
+    }
     public ResizeableArrayBag<T> Difference(ResizeableArrayBag<T> array2)
     {
         checkIntegrity();

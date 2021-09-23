@@ -1,4 +1,4 @@
-public class LinkedBag<T> {
+public class LinkedBag<T> implements BagInterface<T>  {
     private Node firstNode;
     private int numberOfEntries;
 
@@ -9,6 +9,21 @@ public class LinkedBag<T> {
         numberOfEntries++;
         return true;
     }
+
+    public int getCurrentSize(){
+        return numberOfEntries;
+    }
+
+    public boolean isEmpty(){
+        return numberOfEntries == 0;
+    }
+
+    public void clear(){
+        while(!isEmpty()){
+            remove();
+        }
+    }
+
     public T remove(){
         if(firstNode != null){
             T data = firstNode.getData();
@@ -25,7 +40,7 @@ public class LinkedBag<T> {
             previous = tracker;
             tracker = tracker.getNextNode();
         }
-        if(tracker.getData() ==  entry){
+        if(tracker.getData() == entry){
             previous.setNextNode(tracker.getNextNode());
             numberOfEntries--;
             return true;
@@ -33,7 +48,7 @@ public class LinkedBag<T> {
         else    
             return false;
     }
-    public LinkedBag<T> Union(LinkedBag<T> bag2){
+    public LinkedBag<T> union(LinkedBag<T> bag2){
         Node nextNode1 = firstNode;
         Node nextNode2 = bag2.firstNode;
         LinkedBag<T> newBag = new LinkedBag<>();
@@ -47,7 +62,7 @@ public class LinkedBag<T> {
         }
         return newBag;
     }
-    public LinkedBag<T> Difference(LinkedBag<T> array2)
+    public LinkedBag<T> difference(LinkedBag<T> array2)
     {
         LinkedBag<T> bagCopy = new LinkedBag<>();
         if(this.numberOfEntries < array2.numberOfEntries){
@@ -108,6 +123,19 @@ public class LinkedBag<T> {
         }
         return result;
     }
+
+    public int getFrequencyOf(T entry){
+        Node currentNode = firstNode;
+        int frequency = 0;
+        for(int i =0; i<numberOfEntries && currentNode != null; i++){
+            if(currentNode.getData() == entry){
+                frequency++;
+            }
+            currentNode = currentNode.getNextNode();
+        }
+        return frequency;
+    }
+
     public void print(){
         Node current = firstNode;
         for(int i =0; i<numberOfEntries; i++){
