@@ -110,16 +110,25 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
     public ResizeableArrayBag<T> intersection(ResizeableArrayBag<T> bagTwo)
     {
         ResizeableArrayBag<T> intersect = new ResizeableArrayBag<>(this.numberOfEntries + bagTwo.numberOfEntries);
+<<<<<<< HEAD
 
         boolean statForInt[] = new boolean[bagTwo.numberOfEntries];
 
+=======
+        
+        boolean statForInt[] = new boolean[bagTwo.numberOfEntries];
+        
+>>>>>>> 1dbf98753c2c2b1ceab36bfaa8bf0bb534c1e938
         for (int i = 0; i < this.numberOfEntries; i++)
         {
             for (int j = 0; j < bagTwo.numberOfEntries; j++)
             {
+<<<<<<< HEAD
                 if (this.bag[i] == bagTwo.bag[j])
                     intersect.add(this.bag[i]);
 
+=======
+>>>>>>> 1dbf98753c2c2b1ceab36bfaa8bf0bb534c1e938
                 if ((this.bag[i] == bagTwo.bag[j]) && (statForInt[j]==false))
                 {
                      intersect.add(this.bag[i]);
