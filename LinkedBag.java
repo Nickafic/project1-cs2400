@@ -2,6 +2,10 @@ public class LinkedBag<T> implements BagInterface<T>  {
     private Node firstNode;
     private int numberOfEntries;
 
+    public LinkedBag(){
+        firstNode = null;
+        numberOfEntries = 0;
+    }
     public boolean add(T newEntry){
         Node newNode = new Node(newEntry);
         newNode.next = firstNode;
@@ -36,11 +40,11 @@ public class LinkedBag<T> implements BagInterface<T>  {
     public boolean remove(T entry){
         Node tracker = firstNode;
         Node previous = firstNode;
-        while(tracker.getData() != entry && tracker != null){
+        while(tracker != null && tracker.getData() != entry){
             previous = tracker;
             tracker = tracker.getNextNode();
         }
-        if(tracker.getData() == entry){
+        if(tracker != null && tracker.getData() == entry){
             previous.setNextNode(tracker.getNextNode());
             numberOfEntries--;
             return true;
@@ -65,40 +69,20 @@ public class LinkedBag<T> implements BagInterface<T>  {
     public LinkedBag<T> difference(LinkedBag<T> array2)
     {
         LinkedBag<T> bagCopy = new LinkedBag<>();
-        if(this.numberOfEntries < array2.numberOfEntries){
-            Node currentNode = firstNode;
-            for(int i =0; currentNode != null && i<this.numberOfEntries && currentNode.getData() != null; i++){
-                if(array2.contains(currentNode.getData())){
-                    array2.remove(currentNode.getData());
-                }
-                else{
-                    bagCopy.add(currentNode.getData());
-                }
-                currentNode = currentNode.getNextNode();
-            }
-            currentNode = array2.firstNode;
-            for(int i =0; currentNode != null && currentNode.getData() != null && i<array2.numberOfEntries; i++){
-                bagCopy.add(currentNode.getData());
-                currentNode = currentNode.getNextNode();
+        T[] array1 = this.toArray();
+
+        for(T x : array1)
+        {
+            bagCopy.add(x);
+        }
+
+        T[] array3 = array2.toArray();
+        for(T x: array3){
+            if(bagCopy.contains(x)){
+                bagCopy.remove(x);
             }
         }
-        else{
-            Node currentNode = array2.firstNode;
-            for(int i =0; currentNode != null && i<array2.numberOfEntries && currentNode.getData() != null; i++){
-                if(this.contains(currentNode.getData())){
-                    this.remove(currentNode.getData());
-                }
-                else{
-                    bagCopy.add(currentNode.getData());
-                }
-                currentNode = currentNode.getNextNode();
-            }
-            currentNode = array2.firstNode;
-            for(int i =0; currentNode != null && currentNode.getData() != null && i<this.numberOfEntries; i++){
-                bagCopy.add(currentNode.getData());
-                currentNode = currentNode.getNextNode();
-            }
-        }
+
         return bagCopy;
     }
 
@@ -139,7 +123,7 @@ public class LinkedBag<T> implements BagInterface<T>  {
     public void print(){
         Node current = firstNode;
         for(int i =0; i<numberOfEntries; i++){
-            System.out.printf("%d", current.getData());
+            System.out.printf("%s", current.getData());
             current = current.getNextNode();
         }
     }
