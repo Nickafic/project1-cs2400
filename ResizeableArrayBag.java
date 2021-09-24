@@ -1,4 +1,4 @@
-public class ResizeableArrayBag<T> implements BagInterface<T>
+public class ResizeableArrayBag<T>
 {
     private T[] bag;
     private int numberOfEntries = 0;
@@ -129,33 +129,20 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
     {
         checkIntegrity();
         ResizeableArrayBag<T> bagCopy = new ResizeableArrayBag<>(this.numberOfEntries+array2.numberOfEntries);
-        if(this.numberOfEntries < array2.numberOfEntries){
-            for(int i =0; i<this.numberOfEntries; i++){
-                if(array2.contains(this.bag[i])){
-                    array2.remove(this.bag[i]);
-                }
-                else{
-                    bagCopy.add(this.bag[i]);
-                }
-            }
-            for(int i =0; i<array2.numberOfEntries; i++){
-                bagCopy.add(array2.bag[i]);
+        T[] array1 = this.toArray();
+
+        for(T x : array1)
+        {
+            bagCopy.add(x);
+        }
+
+        T[] array3 = array2.toArray();
+        for(T x: array3){
+            if(bagCopy.contains(x)){
+                bagCopy.remove(x);
             }
         }
-        else{
-            for(int i =0; i<array2.numberOfEntries; i++)
-            {
-                if(this.contains(array2.bag[i])){
-                    this.remove(array2.bag[i]);
-                }
-                else{
-                    bagCopy.add(array2.bag[i]);
-                }
-            }
-            for(int i =0; i<this.numberOfEntries; i++){
-                bagCopy.add(this.bag[i]);
-            }
-        }
+
         return bagCopy;
     }
 
@@ -180,7 +167,7 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
 
     public void print(){
         for(int i=0;i<numberOfEntries;i++){
-            System.out.println(bag[i]);
+            System.out.print(bag[i]);
         }
     }
     
