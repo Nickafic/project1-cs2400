@@ -1,4 +1,4 @@
-public class ResizeableArrayBag<T>
+public class ResizeableArrayBag<T> implements BagInterface<T>
 {
     private T[] bag;
     private int numberOfEntries = 0;
