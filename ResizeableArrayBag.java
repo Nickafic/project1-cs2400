@@ -65,7 +65,7 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
         return numberOfEntries;
     }
 
-    public ResizeableArrayBag<T> Union(ResizeableArrayBag<T> bag2){
+    public ResizeableArrayBag<T> union(ResizeableArrayBag<T> bag2){
         checkIntegrity();
         ResizeableArrayBag<T> newBag = new ResizeableArrayBag<>(bag2.numberOfEntries + this.numberOfEntries);
         for(int i =0; i<bag2.numberOfEntries+this.numberOfEntries; i++){
