@@ -2,7 +2,7 @@ Group Members - Nicholas Nguyen, George Fransis, Angelica Arteaga, Brianne Guerr
 <br>
 Contributions{
     <br>
-    Nicholas Nguyen - union method and standard methods for ResizeableArrayBag and LinkedBag.
+    Nicholas Nguyen - union methods and standard methods for ResizeableArrayBag, LinkedBag, and Node class.
     <br>
     Brianne Guerrero - BagInterface, intersection method for ResizeableArrayBag and LinkedBag
     <br>
