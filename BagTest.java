@@ -1,15 +1,18 @@
 public class BagTest{
 
     public static void main(String[] args){
-        ResizeableArrayBag<Integer> bag1 = new ResizeableArrayBag<>(9);
-        ResizeableArrayBag<Integer> bag2 = new ResizeableArrayBag<>(9);
-        for(int i=0; i<6; i++){
-            bag1.add(2);
-        }
-        for(int i=0; i<2; i++){
-            bag2.add(2);
-        }
-        ResizeableArrayBag<Integer> bag3 = bag1.Difference(bag2);
+        ResizeableArrayBag<String> bag1 = new ResizeableArrayBag<>(9);
+        ResizeableArrayBag<String> bag2 = new ResizeableArrayBag<>(9);
+        bag1.add("a");
+        bag1.add("b");
+        bag1.add("c");
+
+        bag2.add("b");
+        bag2.add("b");
+        bag2.add("d");
+        bag2.add("e");
+        
+        ResizeableArrayBag<String> bag3 = bag1.union(bag2);
         bag3.print();
 
         
