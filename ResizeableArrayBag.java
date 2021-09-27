@@ -92,7 +92,8 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
 
     public T remove(){
         checkIntegrity();
-        return remove(numberOfEntries-1);
+        T value = bag[numberOfEntries-1];
+        return value;
     }
     
      public boolean contains(T item)

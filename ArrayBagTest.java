@@ -20,22 +20,22 @@ public class ArrayBagTest
         //to find the union of two bags
         BagInterface<String> everything = bag1.union(bag2);
         System.out.println("Union of the two bags is ");
-        everything.print();
+        everything.toArray();
 
         //to find the intersection of two bags
         BagInterface<String> commonItems = bag1.intersection(bag2);
         System.out.println("Intersection of the two bags is ");
-        commonItems.print();
+        commonItems.toArray();
 
         //to find the difference of two bags.
         
         BagInterface<String> leftOver1 = bag1.difference(bag2);
         System.out.println("The left over of bag1 is ");
-        leftOver1.print();
+        leftOver1.toArray();
 
         BagInterface<String> leftOver2 = bag2.difference(bag1);
         System.out.println("The left over of bag2 is");
-        leftOver2.print();
+        leftOver2.toArray();
 
         
     }
