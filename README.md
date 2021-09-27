@@ -4,7 +4,7 @@ Contributions{
     <br>
     Nicholas Nguyen - 
     <br>
-    Brianne Guerrero - 
+    Brianne Guerrero - BagInterface, intersection method for ResizeableArrayBag and LinkedBag
     <br>
     Angelica Arteaga - 
     <br>
