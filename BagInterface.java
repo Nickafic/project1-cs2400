@@ -66,19 +66,19 @@ public interface BagInterface<T>
     	* @return a new bag that combines the
     	*  contents of bag1 and bag2
      	*/
-// 	public BagInterface<T> union(BagInterface<T> bagTwo);
+ 	public BagInterface<T> union(BagInterface<T> bagTwo);
 	
-// 	/**
-//      	* creates a new bag of content that occurs in two bags.
-//      	* @return a new bag of content that occurs in both bag1 and bag2.
-//      	*/
-// 	public BagInterface<T> intersection(BagInterface<T> bagTwo);
+ 	/**
+      	* creates a new bag of content that occurs in two bags.
+      	* @return a new bag of content that occurs in both bag1 and bag2.
+      	*/
+ 	public BagInterface<T> intersection(BagInterface<T> bagTwo);
 	
-// 	/**
-//      	* creates a new bag of content that was left in one bag after removing those
-//      	* that also occured in the second bag.
-//      	* @return bagDifference 
-//      	*/
-//     	public BagInterface<T> difference(BagInterface<T> bagTwo);
+ 	/**
+      	* creates a new bag of content that was left in one bag after removing those
+      	* that also occured in the second bag.
+      	* @return bagDifference 
+      	*/
+     	public BagInterface<T> difference(BagInterface<T> bagTwo);
 	
 }

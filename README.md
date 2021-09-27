@@ -1,7 +1,12 @@
 Group Members - Nicholas Nguyen, George Fransis, Angelica Arteaga, Brianne Guerrero
+<br>
 Contributions{
-    Nicholas Nguyen - Created Union for arrayBag and Linked bag. Created standard functions in both bags.
-    Brianne Guerrero - Created Intersection functions in arrayBag and Linked bag
-    Angelica Arteaga - Created BagInterface
-    George Fransis - Created difference functions in arrayBag and Linked Bag.
+    <br>
+    Nicholas Nguyen - union methods and standard methods for ResizeableArrayBag, LinkedBag, and Node class.
+    <br>
+    Brianne Guerrero - BagInterface, intersection method for ResizeableArrayBag and LinkedBag
+    <br>
+    Angelica Arteaga - BagInterface
+    <br>
+    George Fransis - difference method for ResizeableArrayBag and LinkedBag
 }
