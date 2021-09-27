@@ -50,15 +50,14 @@ public class LinkedBag<T> implements BagInterface<T>  {
     }
     public BagInterface<T> union(BagInterface<T> bag2){
         Node nextNode1 = firstNode;
-        Node nextNode2 = bag2.firstNode;
+        T[] array2 = bag2.toArray();
         BagInterface<T> newBag = new LinkedBag<>();
         for(int i =0; i<this.numberOfEntries; i++){
             newBag.add(nextNode1.getData());
             nextNode1 = nextNode1.getNextNode();
         }
-        for(int i =0; i<bag2.numberOfEntries; i++){
-            newBag.add(nextNode2.getData());
-            nextNode2 = nextNode2.getNextNode();
+        for(int i =0; i<array2.length; i++){
+            newBag.add(array2[i]);
         }
         return newBag;
     }
