@@ -93,6 +93,8 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
     public T remove(){
         checkIntegrity();
         T value = bag[numberOfEntries-1];
+        bag[numberOfEntries-1] = null;
+        numberOfEntries--;
         return value;
     }
     
@@ -163,7 +165,6 @@ public class ResizeableArrayBag<T> implements BagInterface<T>
             else    
                 newBag.add(bagTwoArray[i-this.numberOfEntries]);           
         }
-        newBag.toArray();
         return newBag;
     }
     

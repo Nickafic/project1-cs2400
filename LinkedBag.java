@@ -56,32 +56,35 @@ public class LinkedBag<T> implements BagInterface<T>  {
             newBag.add(nextNode1.getData());
             nextNode1 = nextNode1.getNextNode();
         }
-        for(int i =0; i<array2.length; i++){
-            newBag.add(array2[i]);
+        for(T x:array2){
+            newBag.add(x);
         }
         return newBag;
     }
     public BagInterface<T> intersection(BagInterface<T> bag2){
         BagInterface<T> bagCopy = new LinkedBag<>();
+        T[] array1 = this.toArray();
+
+        for(T x: array1){
+            if(bag2.contains(x)){
+                bagCopy.add(x);
+                bag2.remove(x);
+            }
+        }
         return bagCopy;
     }
-    public BagInterface<T> difference(BagInterface<T> array2)
-    {
+    public BagInterface<T> difference(BagInterface<T> bag2){
         BagInterface<T> bagCopy = new LinkedBag<>();
         T[] array1 = this.toArray();
 
-        for(T x : array1)
-        {
-            bagCopy.add(x);
-        }
-
-        T[] array3 = array2.toArray();
-        for(T x: array3){
-            if(bagCopy.contains(x)){
-                bagCopy.remove(x);
+        for(T x: array1){
+            if(!bag2.contains(x)){
+                bagCopy.add(x);
+            }
+            else{
+                bag2.remove(x);
             }
         }
-
         return bagCopy;
     }
 
@@ -93,7 +96,7 @@ public class LinkedBag<T> implements BagInterface<T>  {
             }
             currentNode = currentNode.getNextNode();
         }
-        return true;
+        return false;
     }
     
     public T[] toArray(){
