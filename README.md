@@ -12,4 +12,4 @@ Contributions{
     <br>
 }
 <br>
-Screen-Case link - https://youtu.be/LjfU2plkkXA
+Screen-Cast link - https://youtu.be/LjfU2plkkXA
