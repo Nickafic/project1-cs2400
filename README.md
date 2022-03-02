@@ -12,6 +12,3 @@ Contributions{
     <br>
 }
 <br>
-Screen-Cast link - https://youtu.be/LjfU2plkkXA
-<br>
-Javadoc link - file:///C:/Users/iinic/eclipse-workspace/BagInterface.java/doc/BagInterface.html
